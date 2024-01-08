@@ -1,16 +1,16 @@
-import * as vscode from "vscode";
+import * as vscode from 'vscode';
 
-export default function () {
-  return vscode.commands.registerCommand("jira-issue.baseUrl", () => {
+export function baseUrl() {
+  return vscode.commands.registerCommand('jira-issue.baseUrl', () => {
     vscode.window
       .showInputBox({
         ignoreFocusOut: true,
         password: false,
-        prompt: "set your jira baseUrl",
+        prompt: 'set your jira baseUrl',
       })
       .then((value) => {
-        if (value === undefined || value.trim() === "") {
-          vscode.window.showInformationMessage("Please type your base url.");
+        if (value === undefined || value.trim() === '') {
+          vscode.window.showInformationMessage('Please type your base url.');
         } else {
           const val = value.trim();
           vscode.window.showInformationMessage(val);
@@ -19,4 +19,4 @@ export default function () {
         }
       });
   });
-};
+}

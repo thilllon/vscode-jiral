@@ -1,16 +1,16 @@
-import * as vscode from "vscode";
+import * as vscode from 'vscode';
 
-export default function () {
-  return vscode.commands.registerCommand("jira-issue.bearer", () => {
+export function bearer() {
+  return vscode.commands.registerCommand('jira-issue.bearer', () => {
     vscode.window
       .showInputBox({
         ignoreFocusOut: true,
         password: false,
-        prompt: "set your jira bearer",
+        prompt: 'set your jira bearer',
       })
       .then((value) => {
-        if (value === undefined || value.trim() === "") {
-          vscode.window.showInformationMessage("Please type your bearer token.");
+        if (value === undefined || value.trim() === '') {
+          vscode.window.showInformationMessage('Please type your bearer token.');
         } else {
           const val = value.trim();
           vscode.window.showInformationMessage(val);
@@ -19,4 +19,4 @@ export default function () {
         }
       });
   });
-};
+}
